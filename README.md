@@ -384,6 +384,7 @@ cd .. && python build_exec_payload.py payload/jit_exec_v11.bin payload/libJit_ex
 | Path becomes `C:/Program Files/Git/...` | Git Bash path conversion | `export MSYS_NO_PATHCONV=1` |
 | Commands time out at 5 s | Driver default timeout | `export CAM_USB_TIMEOUT=30000` |
 | Camera disappears from USB after `spawn` | Old payload didn't close fds; the child inherited USB handles | Use the current 440 B payload (fixed) |
+| Windows shows "Unknown USB Device (Device Descriptor Request Failed)", `VID_0000&PID_0002` | The camera's USB gadget stack is hung — it enumerates electrically but never answers GET_DESCRIPTOR | **Power the camera off and on** (unplugging the cable is not enough, the body is bus-powered). **Do not install a driver for it in Zadig** — a device that can't return its descriptor cannot be driven, and you'll leave a ghost binding behind |
 
 ---
 

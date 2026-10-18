@@ -375,6 +375,7 @@ cd .. && python build_exec_payload.py payload/jit_exec_v11.bin payload/libJit_ex
 | 路径变成 `C:/Program Files/Git/...` | Git Bash 路径转换 | `export MSYS_NO_PATHCONV=1` |
 | 命令超时 5s | 驱动默认超时 | `export CAM_USB_TIMEOUT=30000` |
 | spawn 后相机从 USB 消失 | 旧载荷没关 fd，子进程继承了 USB 句柄 | 用当前 440B 载荷（已修） |
+| Windows 显示「未知 USB 设备(设备描述符请求失败)」，`VID_0000&PID_0002` | 相机 USB gadget 栈挂死——电气上枚举了，但从不回 GET_DESCRIPTOR | **关相机电源再开**（光拔线不行，机身可由 USB 供电）。**不要用 Zadig 给它装驱动**——读不到描述符的设备根本驱动不了，只会在系统里留一个幽灵绑定 |
 
 ---
 
