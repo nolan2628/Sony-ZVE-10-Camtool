@@ -1,0 +1,9 @@
+# camtool 运行依赖
+pyusb>=1.2.1
+libusb-package>=1.0.26.2
+
+# 认证层 Sony-PMCA-RE (ma1co, MIT) 不在这里装，见 README 8.1：
+#   git clone https://github.com/ma1co/Sony-PMCA-RE
+#   export PMCA_ROOT=/path/to/Sony-PMCA-RE
+#
+# 可选（只有逆向分析脚本用）：capstone、pyelftools

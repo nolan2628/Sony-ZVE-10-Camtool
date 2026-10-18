@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 构建产物
+*.o
+*.tgz
+_push.tgz
+
+# 数据目录（绝不能入库）
+data/
+backup_full/
+backup_*/
+evidence/
+.cam_state.json
+senser_probe/
+ref_a7c2_fl23/
+vendor/
+
+# 固件 / 备份 / 抓包
+*.bin.bak
+nflasha*.bin
+*.exe
+*.zip
+*.7z
+*.img
+
+# AI 助手 / 编辑器工作目录（会话记录、记忆、缓存，绝不入库）
+.workbuddy-ai/
+.codebuddy/
+.trae/
+.claude/
+.cursor/
+*.genie
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
