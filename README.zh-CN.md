@@ -453,3 +453,20 @@ grep -rn "D:/\|C:/Users\|senser_probe" --include=*.py .   # 不该有个人绝�
 git status                                                # 不该有 .bin 大文件 / 备份
 du -sh .                                                  # 应在几百 KB 量级
 ```
+
+---
+
+## 9. 参考与致谢
+
+本项目的实现直接建立在下面这些公开研究之上。除特别说明外，本项目**没有**内联这些代码，
+底层发现的功劳都属于原作者。
+
+| 项目 | 作者 | 在本项目里的作用 | 许可 |
+|---|---|---|---|
+| [ma1co/Sony-PMCA-RE](https://github.com/ma1co/Sony-PMCA-RE) | ma1co | USB 认证与传输层。`jiritsu_lib.py` 直接使用它的 `SonySenserAuthDevice`、`SonySenserDevice`、`GenericUsbDriver` | MIT |
+| [YuuLuo/a7c2-service-preload](https://github.com/YuuLuo/a7c2-service-preload) | YuuLuo | 指出 Sony 工厂服务（Senser / Jiritsu）的路径穿越与 `libJit.so` 加载链，是整条服务模式路线的起点 | 见仓库 |
+| [DavidBuchanan314/ILCE-7M4-RE](https://github.com/DavidBuchanan314/ILCE-7M4-RE) | David Buchanan | bootROM 串口启动协议的参考（48000 8E1、载波脉宽、unlock word、record + CRC32），本项目的 bootROM 后备路线据此实现 | 见仓库 |
+| [QAQLeonard/a7c2-fl23-research](https://github.com/QAQLeonard/a7c2-fl23-research) | QAQLeonard | 跑通的 Jiritsu 线格式实现（`transport.py`），同时是 `PMCA_ROOT` 的默认回退路径 | 见仓库 |
+
+如果本项目的内容对你有帮助，引用时也请一并注明上面这些项目——
+协议细节不是凭空发现的。

@@ -465,3 +465,20 @@ grep -rn "D:/\|C:/Users\|senser_probe" --include=*.py .   # no personal absolute
 git status                                                # no large .bin / backups
 du -sh .                                                  # should be a few hundred KB
 ```
+
+---
+
+## 9. References & credits
+
+This project builds directly on the following public research. None of it is vendored here
+(except where noted), and all credit for the underlying findings belongs to these authors.
+
+| Project | Author | Role in this toolkit | License |
+|---|---|---|---|
+| [ma1co/Sony-PMCA-RE](https://github.com/ma1co/Sony-PMCA-RE) | ma1co | USB authentication and transport. `jiritsu_lib.py` uses its `SonySenserAuthDevice`, `SonySenserDevice` and `GenericUsbDriver` directly | MIT |
+| [YuuLuo/a7c2-service-preload](https://github.com/YuuLuo/a7c2-service-preload) | YuuLuo | Identified the path traversal in Sony's factory service (Senser / Jiritsu) and the `libJit.so` load chain — the starting point of this whole service-mode route | see repo |
+| [DavidBuchanan314/ILCE-7M4-RE](https://github.com/DavidBuchanan314/ILCE-7M4-RE) | David Buchanan | Reference for the bootROM serial-boot protocol (48000 8E1, carrier pulse width, unlock word, record + CRC32). The bootROM fallback route follows it | see repo |
+| [QAQLeonard/a7c2-fl23-research](https://github.com/QAQLeonard/a7c2-fl23-research) | QAQLeonard | A working Jiritsu wire-format implementation (`transport.py`); it is also the default fallback for `PMCA_ROOT` | see repo |
+
+If you use findings from this repo, please credit the projects above as well — the
+protocol details were not discovered in a vacuum.
